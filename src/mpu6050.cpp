@@ -105,7 +105,7 @@ Error MPU6050::begin()
     {
         return err;
     }
-
+    
     uint8_t whoAmI;
     err = readRegister(reg::WHO_AM_I, whoAmI);
     if (err != Error::OK)
