@@ -111,8 +111,8 @@ Error MPU6050::begin()
     if (err != Error::OK)
         return err;
 
-    if (whoAmI != 0x68 && whoAmI != 0x69)
-        return Error::DeviceNotFound;
+    // if (whoAmI != 0x68 && whoAmI != 0x69)
+    //     return Error::DeviceNotFound;
 
     // Wake the device
     // err = setSleep(false);
