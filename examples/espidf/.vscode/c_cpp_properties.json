@@ -1,0 +1,24 @@
+{
+  "env": {
+    "IDF_PATH": "/Users/mohanpushadapu/.espressif/v6.0.2/esp-idf"
+  },
+  "configurations": [
+    {
+      "name": "ESP-IDF",
+      "compilerPath": "/Users/mohanpushadapu/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc",
+      "compileCommands": "${config:idf.buildPath}/compile_commands.json",
+      "intelliSenseMode": "gcc-x86",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${env:IDF_PATH}/components/**"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}

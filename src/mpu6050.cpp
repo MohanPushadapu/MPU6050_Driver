@@ -97,9 +97,7 @@ Error MPU6050::writeBits(uint8_t reg, uint8_t startBit, uint8_t length, uint8_t 
 
 Error MPU6050::begin()
 {
-    Error err;
-
-    err = reset();
+    Error err = reset();
 
     if (err != Error::OK)
     {

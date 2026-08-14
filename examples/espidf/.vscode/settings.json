@@ -1,0 +1,10 @@
+{
+  "idf.currentSetup": "/Users/mohanpushadapu/.espressif/v6.0.2/esp-idf",
+  "idf.customExtraVars": {},
+  "clangd.path": "/Users/mohanpushadapu/.espressif/tools/esp-clang/esp-20.1.1_20250829/esp-clang/bin/clangd",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=**",
+    "--compile-commands-dir=/Users/mohanpushadapu/Documents/GROWTH/Drivers/MPU6050_Driver/examples/espidf/build"
+  ]
+}
