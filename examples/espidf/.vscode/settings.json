@@ -1,10 +1,17 @@
 {
   "idf.currentSetup": "/Users/mohanpushadapu/.espressif/v6.0.2/esp-idf",
-  "idf.customExtraVars": {},
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32s3"
+  },
   "clangd.path": "/Users/mohanpushadapu/.espressif/tools/esp-clang/esp-20.1.1_20250829/esp-clang/bin/clangd",
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
     "--compile-commands-dir=/Users/mohanpushadapu/Documents/GROWTH/Drivers/MPU6050_Driver/examples/espidf/build"
-  ]
+  ],
+  "idf.flashType": "UART",
+  "idf.openOcdConfigs": [
+    "board/esp32s3-builtin.cfg"
+  ],
+  "idf.port": "/dev/tty.usbserial-21410"
 }

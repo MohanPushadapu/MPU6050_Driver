@@ -26,5 +26,6 @@ class IDelay
 {
 public:
     virtual void delayMs(uint32_t ms)=0;
+    virtual void delayUs(uint32_t us)=0;
     virtual ~IDelay()=default;
 };

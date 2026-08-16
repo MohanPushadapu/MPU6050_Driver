@@ -10,11 +10,12 @@
       "intelliSenseMode": "gcc-x86",
       "includePath": [
         "${workspaceFolder}/**",
-        "${env:IDF_PATH}/components/**"
+        "${config:idf.currentSetup}/components/**",
       ],
       "browse": {
         "path": [
-          "${workspaceFolder}"
+          "${workspaceFolder}",
+          "${config:idf.currentSetup}/components/**",
         ],
         "limitSymbolsToIncludedHeaders": true
       }
