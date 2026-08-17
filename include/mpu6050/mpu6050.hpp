@@ -17,29 +17,22 @@ public:
     Error reset();
 
     Error setClockSource(ClockSource src);
-
     Error setAccelRange(AccelRange range);
-
     Error setGyroRange(GyroRange range);
-
     Error setDlpf(Dlpf bandwidth);
-
     Error setSampleRateDivider(uint8_t divider);
 
+    AccelRange getAccelRange();
+    GyroRange getGyroRange();
+
     Error readRawAccel(Vector3i16& accel);
-
     Error readRawGyro(Vector3i16& gyro);
-
     Error readTemperature(int16_t& temperature);
-
     Error readAll(IMUData& data);
 
     Error enableFIFO(bool enable);
-
     Error resetFIFO();
-
     Error getFIFOCount(uint16_t& count);
-
     Error readFIFO(uint8_t* data, uint16_t length);
 
     // To-Do Add more APIs

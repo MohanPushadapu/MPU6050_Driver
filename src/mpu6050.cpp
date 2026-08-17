@@ -103,7 +103,7 @@ Error MPU6050::begin()
     {
         return err;
     }
-    
+
     uint8_t whoAmI;
     err = readRegister(reg::WHO_AM_I, whoAmI);
     if (err != Error::OK)
@@ -161,6 +161,26 @@ Error MPU6050::setGyroRange(GyroRange range)
         4, // highest bit
         2, // number of bits
         static_cast<uint8_t>(range));
+}
+
+AccelRange MPU6050::getAccelRange()
+{
+    uint8_t range;
+    readBits(reg::ACCEL_CONFIG,
+             4,
+             2,
+             range);
+    return static_cast<AccelRange>(range);
+}
+
+GyroRange MPU6050::getGyroRange()
+{
+    uint8_t range;
+    readBits(reg::GYRO_CONFIG,
+             4,
+             2,
+             range);
+    return static_cast<GyroRange>(range);
 }
 
 Error MPU6050::setAccelRange(AccelRange range)
