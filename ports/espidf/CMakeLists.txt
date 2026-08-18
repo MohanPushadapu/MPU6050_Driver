@@ -1,3 +1,7 @@
-idf_component_register(SRCS "espidf.cpp"
-                    INCLUDE_DIRS "."
-                    REQUIRES MPU6050_Driver esp_driver_i2c freertos)
+target_sources(${COMPONENT_LIB} PRIVATE
+    src/espidf.cpp
+)
+
+target_include_directories(${COMPONENT_LIB} PUBLIC
+    ${CMAKE_CURRENT_LIST_DIR}/include
+)
