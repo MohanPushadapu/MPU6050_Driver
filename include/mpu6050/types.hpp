@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdint>   // C++
+#include <cstdint> // C++
 
 struct Vector3f
 {
@@ -15,11 +15,19 @@ struct Vector3i16
     int16_t z;
 };
 
-struct IMUData {
+struct IMURawData
+{
     Vector3i16 accel;
     Vector3i16 gyro;
     int16_t temperature;
     // uint64_t timestamp_us;
+};
+
+struct IMUData
+{
+    Vector3f accel;
+    Vector3f gyro;
+    float temperature;
 };
 
 struct Interrupt
@@ -27,9 +35,7 @@ struct Interrupt
     // To-Do
 };
 
-
 struct Temperature
 {
     float temperature;
 };
-

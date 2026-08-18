@@ -1,8 +1,0 @@
-version: "0.1.0"
-description: "Portable C++ driver for the MPU6050 IMU with an ESP-IDF port"
-license: "MIT"
-repository: "https://github.com/MohanPushadapu/MPU6050_Driver.git"
-
-dependencies:
-  idf:
-    version: ">=6.0"

@@ -1,5 +1,5 @@
-#include "mpu6050/mpu6050.hpp"
 #include "mpu6050/interface.hpp"
+#include "mpu6050/mpu6050.hpp"
 
 MPU6050::MPU6050(II2C &i2c, uint8_t address) : i2c_(i2c), address_(address)
 {
@@ -233,6 +233,24 @@ Error MPU6050::readRawAccel(Vector3i16 &accel)
     return Error::OK;
 }
 
+Error MPU6050::readAccel(Vector3f &accel)
+{
+    Vector3i16 rawAccel;
+    AccelRange range = getAccelRange();
+
+    Error err = readRawAccel(rawAccel);
+    if (err != Error::OK)
+    {
+        return err;
+    }
+
+    accel.x = static_cast<float>(rawAccel.x) / accelSensitivity(range);
+    accel.y = static_cast<float>(rawAccel.y) / accelSensitivity(range);
+    accel.z = static_cast<float>(rawAccel.z) / accelSensitivity(range);
+
+    return Error::OK;
+}
+
 Error MPU6050::readRawGyro(Vector3i16 &gyro)
 {
     uint8_t buffer[6];
@@ -250,6 +268,20 @@ Error MPU6050::readRawGyro(Vector3i16 &gyro)
     return Error::OK;
 }
 
+Error MPU6050::readGyro(Vector3f &gyro){
+    Vector3i16 rawGyro;
+    GyroRange range = getGyroRange();
+    
+    Error err = readRawGyro(rawGyro);
+    if (err != Error::OK){
+        return err;
+    }
+
+    gyro.x = static_cast<float>(rawGyro.x)/gyroSensitivity(range);
+    gyro.y = static_cast<float>(rawGyro.y)/gyroSensitivity(range);
+    gyro.z = static_cast<float>(rawGyro.z)/gyroSensitivity(range);
+}
+
 Error MPU6050::readTemperature(int16_t &temperature)
 {
     uint8_t buffer[2];
@@ -265,7 +297,7 @@ Error MPU6050::readTemperature(int16_t &temperature)
     return Error::OK;
 }
 
-Error MPU6050::readAll(IMUData &data)
+Error MPU6050::readRawAll(IMURawData &data)
 {
     uint8_t buffer[14];
 
