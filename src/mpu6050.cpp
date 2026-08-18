@@ -280,6 +280,8 @@ Error MPU6050::readGyro(Vector3f &gyro){
     gyro.x = static_cast<float>(rawGyro.x)/gyroSensitivity(range);
     gyro.y = static_cast<float>(rawGyro.y)/gyroSensitivity(range);
     gyro.z = static_cast<float>(rawGyro.z)/gyroSensitivity(range);
+
+    return Error::OK;
 }
 
 Error MPU6050::readTemperature(int16_t &temperature)
